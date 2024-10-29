@@ -1,0 +1,17 @@
+ % Parameters
+kd = 10;
+kp = 0.8;
+ki = 0.1;
+
+% Numerator and denominator of the transfer function
+num = [kd, kp, ki];    % Numerator: kd * s^2 + kp * s + ki
+den = [1, kd, kp, ki];  % Denominator: s^3 + kd * s^2 + kp * s + ki
+
+% Create the transfer function
+sys = tf(num, den);
+
+% Simulate the step response
+figure;
+step(sys);
+title('Step Response of the Closed-loop System');
+grid on;

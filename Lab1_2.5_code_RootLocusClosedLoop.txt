@@ -1,0 +1,17 @@
+% Given constants
+k_theta = 1;
+k_w = 3;
+k_i = 2;
+
+% Define the transfer function numerator and denominator
+numerator = [k_theta k_w k_i];
+denominator = [1 k_theta k_w k_i];
+
+% Create the transfer function
+sys = tf(numerator, denominator);
+
+% Plot the root locus
+figure;
+rlocus(sys);
+title('Root Locus of the Closed-Loop System');
+grid on;

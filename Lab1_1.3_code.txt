@@ -1,0 +1,10 @@
+% Define the transfer function G(s) = a / s^2
+a = 0.01109;
+num = [a];
+den = [1 0 0]; % s^2 term
+
+% Create transfer function
+sys = tf(num, den);
+% Generate Bode plot
+bode(sys);
+grid on;

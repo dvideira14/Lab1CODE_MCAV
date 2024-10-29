@@ -1,0 +1,17 @@
+% Define the constants
+k_theta = 1;
+k_w = 3;
+k_i = 2;
+
+% Numerator and Denominator of the Transfer Function
+num = [k_theta, k_w, k_i];  % Coefficients for s^2, s, and constant term
+den = [1, k_theta, k_w, k_i];  % Coefficients for s^3, s^2, s, and constant term
+
+% Create the transfer function
+sys = tf(num, den);
+
+% Plot the step response
+figure;
+step(sys);
+title('Step Response of the System');
+grid on; 

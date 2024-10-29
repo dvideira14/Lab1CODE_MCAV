@@ -1,0 +1,23 @@
+>> % Define system parameters
+kw = 1;  % Gain of the derivative controller
+
+% Closed-loop transfer function: T(s) = kw / (s + kw)
+numerator = [kw];
+denominator = [1 kw];
+
+% Create the transfer function system
+sys = tf(numerator, denominator);
+
+% Define the time vector for the simulation
+t = linspace(0, 5, 500);
+
+% Get the step response
+[y, t] = step(sys, t);
+
+% Plot the step response
+figure;
+plot(t, y, 'LineWidth', 2);
+title('Step Response of the Closed-Loop System');
+xlabel('Time (seconds)');
+ylabel('Amplitude');
+grid on;

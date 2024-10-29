@@ -1,0 +1,22 @@
+kd = 1;
+kp = 0.8;
+ki = 0.1;
+
+% Define the transfer function T(s) = (kds^2 + kps + ki) / (s^3 + kds^2 + kps + ki)
+numerator = [kd, kp, ki];
+denominator = [1, kd, kp, ki];
+
+% Create the transfer function system
+system = tf(numerator, denominator);
+
+% Simulate the step response
+t = 0:0.1:50; % Simulation time from 0 to 50 seconds
+[y, t] = step(system, t);
+
+% Plot the response
+figure;
+plot(t, y, 'LineWidth', 2);
+title('Step Response of the Closed-Loop System');
+xlabel('Time (s)');
+ylabel('Amplitude');
+grid on;

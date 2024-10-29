@@ -1,0 +1,14 @@
+% Define the transfer function G(s) = a / s^2
+a = 0.01109;  % Updated constant a
+sys = tf(a, [1 0 0]);  % Transfer function G(s) = a / s^2
+
+% Time vector for the simulation
+t = 0:0.1:10;
+
+% Simulate the step response
+figure;
+step(sys, t);
+title('Step Response of Satellite Pitch Dynamics (a = 0.01109)');
+xlabel('Time (seconds)');
+ylabel('Pitch Angle (radians)');
+grid on;

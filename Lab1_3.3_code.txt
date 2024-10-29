@@ -1,0 +1,19 @@
+% Define the controller gains
+Kp = 0.8;  % Proportional gain
+Ki = 0.1;  % Integral gain
+Kd = 10;   % Derivative gain
+
+% Define the PID controller transfer function K(s)
+C = tf([Kd, Kp, Ki], [1, 0]); % K(s) = Kds^2 + Kps + Ki
+
+% Define the plant transfer function G(s) = 1/s^2
+G = tf(1, [1, 0, 0]); % G(s) = 1/s^2
+
+% Open-loop transfer function L(s) = K(s) * G(s)
+L = C * G; % L(s) = K(s) * G(s)
+
+% Plot the Bode diagram of L(s)
+figure;
+bode(L);
+grid on;
+title('Bode Diagram of L(s)')
